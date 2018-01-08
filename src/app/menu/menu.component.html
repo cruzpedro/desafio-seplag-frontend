@@ -1,0 +1,28 @@
+<h5>Beneficio de aposentadoria</h5>
+<nav>
+	<ul class="nav nav-pills flex-column">
+		<li class="nav-item" *ngFor="let tramitacao of tramitacoes">
+			<a data-toggle="collapse" class="nav-link" [href]="'#' + tramitacao.id" role="button" aria-expanded="true">
+				<i class="fa fa-folder-open" aria-hidden="true"></i> {{tramitacao.nome}}
+			</a>
+			<div [id]="tramitacao.id" class="collapse" role="tabpanel">
+				<ul class="nav nav-pills flex-column nav-categoria">
+					<li class="nav-item" *ngFor="let categoria of categorias">
+						<a data-toggle="collapse" class="nav-link" [href]="'#' + tramitacao.id+'-'+categoria.id" role="button" aria-expanded="true">
+							<i class="fa fa-folder-open" aria-hidden="true"></i> {{categoria.descricao}}
+						</a>
+						<div [id]="tramitacao.id+'-'+categoria.id" class="collapse" role="tabpanel">
+							<ul>
+								<li>
+									<a>
+										<i class="fa fa-file-pdf-o" aria-hidden="true"></i> Teste
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</nav>

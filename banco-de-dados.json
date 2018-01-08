@@ -1,0 +1,77 @@
+{
+    "categorias": [
+        {
+            "id": 1,
+            "descricao": "Identificação"
+        },
+        {
+            "id": 2,
+            "descricao": "Vida Funcional"
+        },
+        {
+            "id": 3,
+            "descricao": "Contagem de tempo"
+        },
+        {
+            "id": 4,
+            "descricao": "Remuneração/Proventos"
+        }
+    ],
+    "usuario": [
+        {
+            "id": 1,
+            "nome": "Usuario",
+            "cpf": "111.111.111-11",
+            "orgao": "Órgão",
+            "matricula": 11
+        }
+    ],
+    "beneficio": [
+        {
+            "id": 1,
+            "tramitacao": {
+                "id": 1,
+                "nome": "Instrição Inicial do Processo"
+            },
+            "categoria": {
+                "id": 1,
+                "descricao": "Identificação"
+            },
+            "usuario": {
+                "id": 1,
+                "nome": "Usuario",
+                "cpf": "111.111.111-11",
+                "orgao": "Órgão",
+                "matricula": 11
+            },
+            "arquivo": "http://www.cespe.unb.br/concursos/ABIN2010/arquivos/ED_1_2010_ABIN_ABT_FINAL___03.09.2010.PDF"
+        }
+        
+    ],
+    "movimento":[
+        {
+            "id": 1,
+            "data": "Sun Jan 07 2018 17:22:07 GMT-0200",
+            "local_origem": "Instrição Inicial do Processo",
+            "local_destino": "Análise Administrativa",
+            "usuario": "Usuario",
+            "beneficio": {
+                "id": 1
+            }
+        }
+    ],
+    "tramitacoes": [
+        {
+            "id": 1,
+            "nome": "Instrição Inicial do Processo"
+        },
+        {
+            "id": 2,
+            "nome": "Análise Administrativa"
+        },
+        {
+            "id": 3,
+            "nome": "Análise Jurídica"
+        }
+    ]
+}

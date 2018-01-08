@@ -1,0 +1,33 @@
+.menu {
+    background: #28a745
+}
+
+.nav-link {
+    color: #FFF !important
+}
+
+.nav-link:hover{
+    color: #C1E4FF !important
+}
+
+.banner {
+    margin-top: 130px;
+}
+
+.banner img {
+    width: 100%;
+    height: 230px
+}
+
+.active {
+    color: #FFF 
+}
+
+.fixed-top {
+    background: #FFF;
+    position: relative;
+}
+
+.navbar-brand img{
+    height: 70px;
+}
