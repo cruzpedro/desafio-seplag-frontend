@@ -9,7 +9,7 @@ export class TramitacaoService {
     constructor(private http: Http) {}
 
     public getTramitacoes(): Observable<Tramitacao[]> {
-        return this.http.get(`${URL_API}/tramitacoes`)
+        return this.http.get(`${URL_API}/tramitacao`)
             .map(resposta => resposta.json());
     }
 }

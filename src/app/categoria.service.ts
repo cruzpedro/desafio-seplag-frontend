@@ -10,7 +10,7 @@ export class CategoriaService {
     constructor(private http: Http) {}
 
     public getCategorias(): Observable<Categoria[]> {
-        return this.http.get(`${URL_API}/categorias`)
+        return this.http.get(`${URL_API}/categoria`)
             .map(resposta => resposta.json());
     }
 }

@@ -1,19 +1,33 @@
-<h5>Movimentações</h5>
-<table class="table">
-	<thead class="thead-light">
-		<tr>
-			<th scope="col">Data Tramitação</th>
-			<th scope="col">Local Origem</th>
-			<th scope="col">Local Destino</th>
-			<th scope="col">Usuário</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let movimento of movimentacao">
-			<td>{{movimento.data | date: 'dd/MM/yyyy'}}</td>
-			<td>{{movimento.local_origem}}</td>
-			<td>{{movimento.local_destino}}</td>
-			<td>{{movimento.usuario}}</td>
-		</tr>
-	</tbody>
-</table>
+<h5>Movimentações
+	<span *ngIf="beneficio"> - {{beneficio.arquivo}} / {{beneficio.usuario.nome}}</span>
+</h5>
+<div *ngIf="beneficio; else beneficioAlerta">
+	<table class="table" *ngIf="movimentacao.length > 0; else listaMovimentacaoVazia">
+		<thead class="thead-light">
+			<tr>
+				<th scope="col">Data Tramitação</th>
+				<th scope="col">Local Origem</th>
+				<th scope="col">Local Destino</th>
+				<th scope="col">Usuário</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let movimento of movimentacao">
+				<td>{{movimento.data | date: 'dd/MM/yyyy'}}</td>
+				<td>{{movimento.tramitacaoOrigem.nome}}</td>
+				<td>{{movimento.tramitacaoDestino.nome}}</td>
+				<td>{{movimento.beneficio.usuario.nome}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<ng-template #beneficioAlerta>
+	<hr>
+	<h5>Selecione um beneficio para visualizar o arquivo</h5>
+</ng-template>
+
+<ng-template #listaMovimentacaoVazia>
+	<hr>
+	<h5>Não existem movimentações para esse beneficio</h5>
+</ng-template>

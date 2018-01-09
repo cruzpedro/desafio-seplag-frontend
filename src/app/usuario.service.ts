@@ -9,7 +9,7 @@ export class UsuarioService {
     constructor(private http: Http) {}
 
     public getUsuarioPorId(id: number): Observable<Usuario[]> {
-        return this.http.get(`${URL_API}/usuarios?id=${id}`)
-            .map(resposta => resposta.json());
+        return this.http.get(`${URL_API}/usuario?id=${id}`)
+            .map(resposta => resposta.json()[0]);
     }
 }

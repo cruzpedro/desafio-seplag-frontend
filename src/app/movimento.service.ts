@@ -12,4 +12,9 @@ export class MovimentoService {
         return this.http.get(`${URL_API}/movimento`)
             .map(resposta => resposta.json());
     }
+
+    public getMovimentacaoPorBeneficio(beneficio: any): Observable<any[]> {
+        return this.http.get(`${URL_API}/movimento/buscarPorBeneficio/${beneficio.id}`)
+            .map(resposta => resposta.json());
+    }
 }

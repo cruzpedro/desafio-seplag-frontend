@@ -1,0 +1,64 @@
+<ng-template #content let-c="close" let-d="dismiss" style="max-width: 700px">
+  <div class="modal-header">
+    <h4 class="modal-title">Tramitar Beneficio</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+      <div class="alert alert-success" role="alert" *ngIf="msgSucesso">
+        Tramicao realizada com sucesso
+      </div>
+  
+      <div class="alert alert-danger" role="alert" *ngIf="msgFalha">
+        Falha ao tentar tramitar um beneficio
+      </div>
+
+      <div class="alert alert-warning" role="alert" *ngIf="msgAlerta">
+        Escolha uma Tramitacao diferente da que o beneficio já se encontra
+      </div>
+
+      <h5>Beneficio</h5>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Beneficiario</th>
+            <th scope="col">Tramitação</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Arquivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{beneficio.usuario.nome}}</td>
+            <td>{{beneficio.tramitacao.nome}}</td>
+            <td>{{beneficio.categoria.descricao}}</td>
+            <td>{{beneficio.arquivo}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row col-md-12">
+          <div class="col-md-6">
+            <div>
+              <label>Tramitação</label>
+            </div>
+            <select class="custom-select" (change)="selecionarTramitacao($event.target.value)">
+              <option value="" selected>Selecione...</option>
+              <option *ngFor="let tramitacao of tramitacoes" [value]="tramitacao.id">
+                {{tramitacao.nome}}
+              </option>
+            </select>
+          </div>
+        </div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-outline-success" (click)="tramitarBeneficio()">Salvar</button>
+      <button type="button" class="btn btn-outline-danger" (click)="c('Close click')">Cancelar</button>
+  </div>
+</ng-template>
+
+<button type="button" class="btn btn-secondary" (click)="open(content)" [disabled]="!beneficio">
+  Tramitar Benefício
+</button>

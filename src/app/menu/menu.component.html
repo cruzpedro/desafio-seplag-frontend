@@ -12,10 +12,10 @@
 							<i class="fa fa-folder-open" aria-hidden="true"></i> {{categoria.descricao}}
 						</a>
 						<div [id]="tramitacao.id+'-'+categoria.id" class="collapse" role="tabpanel">
-							<ul>
-								<li>
-									<a>
-										<i class="fa fa-file-pdf-o" aria-hidden="true"></i> Teste
+							<ul *ngIf="beneficios.length > 0">
+								<li *ngFor="let beneficio of getBeneficio(tramitacao.id, categoria.id)">
+									<a href="javascript:void(0)" (click)="selecionarBeneficio(beneficio)">
+										<i class="fa fa-file-pdf-o" aria-hidden="true"></i> {{beneficio.arquivo}}
 									</a>
 								</li>
 							</ul>
@@ -26,3 +26,11 @@
 		</li>
 	</ul>
 </nav>
+
+<hr>
+
+<app-modal-adicionar [usuario]="usuario" [tramitacoes]="tramitacoes" [categorias]="categorias" (close)="getBeneficios()"></app-modal-adicionar>
+
+<hr>
+
+<app-modal-tramitar (close)="getBeneficios()" [tramitacoes]="tramitacoes"></app-modal-tramitar>
